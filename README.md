@@ -4,7 +4,7 @@ How to install a linux distro on apu2
 
 ## Debian with Unetbootin (iso mode)
 
-[Guida utilizzata] (https://syscall.eu/blog/2017/07/19/apu/)
+[Guida utilizzata](https://syscall.eu/blog/2017/07/19/apu/)
 
 - Far partire la USB sulla apu
 - Premere freccia giú finche non compare la scritta `Display help screens; type 'menu' at boot prompt to return to this menu" press "enter`
