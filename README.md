@@ -4,23 +4,19 @@ How to install a linux distro on apu2
 
 ## Debian with Unetbootin (iso mode)
 
+[Guida utilizzata] (https://syscall.eu/blog/2017/07/19/apu/)
 
-https://syscall.eu/blog/2017/07/19/apu/ ha funzionato
-- Far partire la USB
+- Far partire la USB sulla apu
 - Premere freccia giú finche non compare la scritta `Display help screens; type 'menu' at boot prompt to return to this menu" press "enter`
 - Scrivere ¨menu¨ e premere invio
 - premere F6
 - dopo `boot: ` scrivere `install console=ttyS0,115200n8` e premere invio
 - aspettare
 
-## Debian with dd
+## Change /boot/grub/boot.cfg
 
+Cambiando il file /boot/grub/boot.cfg sostiuendo al post di `vga=...` -> ´console=ttyS0,115200n8´, in teoria si dovrebbe riuscire ma invece no. 
 
-
-## Ubuntu 18.04 with dd
-
-`sudo dd if=Downloads/ubuntu-18.04.2-live-server-amd64.iso of=/dev/sdc status=progress`
-
-
+Il file boot.cfg c´é solo masterizzando la iso in ISO MODE. 
 
 
