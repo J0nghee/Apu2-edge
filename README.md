@@ -13,7 +13,7 @@ How to install a linux distro on apu2
 - dopo `boot: ` scrivere `install console=ttyS0,115200n8` e premere invio
 - aspettare
 
-## Change /boot/grub/boot.cfg
+## Ubuntu: change /boot/grub/boot.cfg
 
 Cambiando il file /boot/grub/boot.cfg sostiuendo al post di `vga=...` -> ´console=ttyS0,115200n8´, in teoria si dovrebbe riuscire ma invece no. 
 
