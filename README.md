@@ -4,11 +4,14 @@ How to install a linux distro on apu2
 
 ## Debian with Unetbootin (iso mode)
 
-in boot/grub/boot.cfg, sostituire vga=... con linux console=ttyS0,115200n8
-/install.amd/vmlinuz console=ttyS0,115200n8 --- quiet
 
-https://syscall.eu/blog/2017/07/19/apu/ funzionato
-pass: edge123
+https://syscall.eu/blog/2017/07/19/apu/ ha funzionato
+- Far partire la USB
+- Premere freccia giú finche non compare la scritta `Display help screens; type 'menu' at boot prompt to return to this menu" press "enter`
+- Scrivere ¨menu¨ e premere invio
+- premere F6
+- dopo `boot: ` scrivere `install console=ttyS0,115200n8` e premere invio
+- aspettare
 
 ## Debian with dd
 
