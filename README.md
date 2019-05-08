@@ -2,7 +2,7 @@
 
 
 
-##phase 1: Install a linux distro on apu2 ( [Offical documentation](https://pcengines.ch/howto.htm#home) )
+## phase 1: Install a linux distro on apu2 ( [Offical documentation](https://pcengines.ch/howto.htm#home) )
 
 ### Debian (work)
 
