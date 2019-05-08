@@ -1,8 +1,9 @@
 # APU2
 
-How to install a linux distro on apu2
+How to install a linux distro on apu2 ([https://pcengines.ch/howto.htm#home}(Official documentation)
 
-## Debian
+
+## Debian (work)
 
 [Guida utilizzata](https://syscall.eu/blog/2017/07/19/apu/)
 
@@ -13,20 +14,20 @@ How to install a linux distro on apu2
 - dopo `boot: ` scrivere `install console=ttyS0,115200n8` e premere invio
 - aspettare
 
-## Ubuntu server 18.04 LTS
 
-Install the .iso on the USB with Unetbootin (iso mode).
-change /boot/grub/boot.cfg
-
-Cambiando il file /boot/grub/boot.cfg sostiuendo al post di `vga=...` -> ´console=ttyS0,115200n8´, in teoria si dovrebbe riuscire ma invece no. 
-
-Il file boot.cfg c´é solo masterizzando la iso in ISO MODE. 
-
-
-## Ubuntu 
+## Ubuntu (work)
 
 Must download [http://cdimage.ubuntu.com/releases/18.04.2/release/?_ga=2.6837746.1317156672.1557303868-755951356.1557213959](Ubuntu alternate)
 
 Once at the "boot:" prompt type:
 
 install vga=off console=ttyS0,115200n8
+
+## Ubuntu server 18.04 LTS (not working)
+
+Install the .iso on the USB with Unetbootin (iso mode).
+
+Cambiando il file /boot/grub/boot.cfg e sostiuendo al post di `vga=...` -> ´console=ttyS0,115200n8´, in teoria si dovrebbe riuscire ma invece no. 
+
+Il file boot.cfg c´é solo masterizzando la iso in ISO MODE. 
+
