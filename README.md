@@ -1,8 +1,17 @@
 # APU2
 
+Mac address:
+- black: 
+    - wifi: 04F021457CA4
+    - ethernet: fe80::20d:b9ff:fe4e:7784
+- blue:  
+    - wifi: 04F021457CA2
+- red:   
+    - wifi: 04F021457CA5
 
 
-## phase 1: Install a linux distro on apu2 ( [Offical documentation](https://pcengines.ch/howto.htm#home) )
+
+## Step 1: Install a linux distro on apu2 ( [Offical documentation](https://pcengines.ch/howto.htm#home) )
 
 ### Debian (work)
 
@@ -31,4 +40,9 @@ Install the .iso on the USB with Unetbootin (iso mode).
 Cambiando il file /boot/grub/boot.cfg e sostiuendo al post di `vga=...` -> ´console=ttyS0,115200n8´, in teoria si dovrebbe riuscire ma invece no. 
 
 Il file boot.cfg c´é solo masterizzando la iso in ISO MODE. 
+
+## Step 2: Preseeding
+
+- Boot Ubuntu USB, but at the grub menu press F6 and choose ¨Expert Mode¨ 
+- type: ´ksdevice=ens1 locale=en_US.UTF-8 keyboard-configuration/layoutcode=us hostname=ubuntu interface=ens1 url=http://
 
