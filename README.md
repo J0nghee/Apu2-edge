@@ -3,7 +3,7 @@
 Mac address:
 - black: 
     - wifi: 04F021457CA4
-    - ethernet: fe80::20d:b9ff:fe4e:7784
+    - ethernet:
 - blue:  
     - wifi: 04F021457CA2
 - red:   
@@ -27,7 +27,7 @@ Mac address:
 
 ### Ubuntu (work)
 
-Must download [http://cdimage.ubuntu.com/releases/18.04.2/release/?_ga=2.6837746.1317156672.1557303868-755951356.1557213959](Ubuntu alternate)
+Must download [Ubuntu Alternate](http://cdimage.ubuntu.com/releases/18.04.2/release/?_ga=2.6837746.1317156672.1557303868-755951356.1557213959)
 
 Once at the "boot:" prompt type:
 
@@ -45,4 +45,8 @@ Il file boot.cfg c´é solo masterizzando la iso in ISO MODE.
 
 - Boot Ubuntu USB, but at the grub menu press F6 and choose ¨Expert Mode¨ 
 - type: ´ksdevice=ens1 locale=en_US.UTF-8 keyboard-configuration/layoutcode=us hostname=ubuntu interface=ens1 url=http://
+- Create the preseed file:
+    - [Used this](http://debian-handbook.info/browse/stable/sect.automated-installation.html)
+        `sudo apt-get install debconf-utils`
+        `sudo debconf-get-selections --installer`
 
