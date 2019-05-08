@@ -1,6 +1,6 @@
 # APU2
 
-How to install a linux distro on apu2 ([https://pcengines.ch/howto.htm#home](Official documentation)
+How to install a linux distro on apu2 ( [https://pcengines.ch/howto.htm#home](Official documentation) )
 
 
 ## Debian (work)
