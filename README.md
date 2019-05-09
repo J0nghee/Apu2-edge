@@ -41,8 +41,9 @@ Cambiando il file /boot/grub/boot.cfg e sostiuendo al post di `vga=...` -> ´con
 
 Il file boot.cfg c´é solo masterizzando la iso in ISO MODE. 
 
-## Step 2: Preseeding
+## Step 2: Preseeding 
 
+### Preseeding with Ubuntu
 - Boot Ubuntu USB, but at the grub menu press F6 and choose ¨Expert Mode¨ 
 - type: ´ksdevice=ens1 locale=en_US.UTF-8 keyboard-configuration/layoutcode=us hostname=ubuntu interface=ens1 url=http://
 - Create the preseed file:
@@ -50,3 +51,16 @@ Il file boot.cfg c´é solo masterizzando la iso in ISO MODE.
         `sudo apt-get install debconf-utils`
         `sudo debconf-get-selections --installer`
 
+dando install vga=off console=ttyS0m115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg interface=enp2s0
+
+con quello generato: 
+    
+quello non generato:
+    - hostname
+        - [soluzione](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202): aggiungere parementro hostanme=ubuntu da passare al boot
+    - se fare l´unmount di /dev/sda
+    - installare ssh-server
+- precaricare chiave ssh
+- 
+
+### Preseeding with debian
