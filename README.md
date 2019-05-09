@@ -27,7 +27,7 @@ Mac address:
 
 ### Ubuntu (work)
 
-Must download [Ubuntu Alternate](http://cdimage.ubuntu.com/releases/18.04.2/release/?_ga=2.6837746.1317156672.1557303868-755951356.1557213959)
+Must download [Ubuntu Alternate](http://cdimage.ubuntu.com/releases/18.04.2/release/?_ga=2.6837746.1317156672.1557303868-755951356.1557213959) (ubuntu-18.04.2-server-amd64, *not* live-server)
 
 Once at the "boot:" prompt type:
 
