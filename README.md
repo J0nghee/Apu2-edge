@@ -46,11 +46,12 @@ Il file boot.cfg c´é solo masterizzando la iso in ISO MODE.
 ### Preseeding with ubuntu/debian
 Sia il file che i comandi utilizzati sono gli stessi per ubuntu e debian. 
 
-- Create the preseed file:
-    1. Generarlo [Used this](http://debian-handbook.info/browse/stable/sect.automated-installation.html)
+- Generate the preseed.cfg file. We have 2 different options
+    1. Automatic generate:[Used this](http://debian-handbook.info/browse/stable/sect.automated-installation.html)
+    
         `sudo apt-get install debconf-utils`
         `sudo debconf-get-selections --installer`
-    2. Modificare [l´esempio](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt) presente nella [documentazione](https://help.ubuntu.com/lts/installation-guide/amd64/apbs04.html)
+    2. Modify the [example](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt) founded in the [documentation](https://help.ubuntu.com/lts/installation-guide/amd64/apbs04.html)
         - [file preseed modificato](https://gitlab.fbk.eu/fgionghi/apu2/blob/master/Files/preseed.cfg)
 
 - Avviare la scheda, una volta arrivati al prompt `boot:`, proseguire il comando `install vga.. console=..` come descritto in seguito
