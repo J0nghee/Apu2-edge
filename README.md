@@ -69,4 +69,12 @@ Peró vengono comunque chiesti alcuni valori:
 Il comando finale diventa quindi: `install vga=off console=ttyS0m115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg priority=critical interface=enp2s0 `
 
 ## SSH 
-default private key path: /home/user/.ssh/id_rsa
+[Script finito](https://gitlab.fbk.eu/fgionghi/apu2/blob/master/Files/ssh_script.sh)
+Scopo: script che aggiunga al file ~/.ssh/authorized_keys una chiave pubblica e modifichi i parametri PubkeyAuthentication e PasswordAuthentication
+
+cambia valore: sed 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config > temp.txt
+toglie cancelletto e cambia valore: sed 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
+
+mv -f temp.txt /etc/ssh/sshd_config
+
+echo ¨chiave pubblica¨ >> ~/.ssh/authorized_keys
