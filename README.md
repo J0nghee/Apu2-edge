@@ -51,16 +51,28 @@ Il file boot.cfg c´é solo masterizzando la iso in ISO MODE.
         `sudo apt-get install debconf-utils`
         `sudo debconf-get-selections --installer`
 
-dando install vga=off console=ttyS0m115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg interface=enp2s0
+dando install vga=off console=ttyS0m115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg priority=critical interface=enp2s0
 
-con quello generato: 
+L´ideale sarebbe poter scrivere `install vga=off console=ttyS0m115200n8 url=172.28.48.21:5000/preseed.cfg`
+
+Peró vengono comunque chiesti alcuni valori:
+    -lingua
     
-quello non generato:
-    - hostname
-        - [soluzione](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202): aggiungere parementro hostanme=ubuntu da passare al boot
-    - se fare l´unmount di /dev/sda
-    - installare ssh-server
+    - hostname, a causa di un [bug](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202). Soluzioni:
+        - aggiungere `priority=critical` come paramentro da passare al boot
+        - aggiungere hostanme=ubuntu come paramentro da passare al boot
+    - interface, a causa di un [bug](https://bugs.launchpad.net/ubuntu/+source/netcfg/+bug/855921). Soluzione:
+        - aggiungere paramentro interface=enp2s0 dopo `url=...`
+Il comando finale diventa quindi:
+    
 - precaricare chiave ssh
 - 
 
 ### Preseeding with debian
+install vga=off console=ttyS0m115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg interface=enp2s0 hostname=ubuntu
+- non generato:
+    -
+
+
+## SSH 
+default private key path: /home/user/.ssh/id_rsa
