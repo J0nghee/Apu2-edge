@@ -61,6 +61,7 @@ Sia il file che i comandi utilizzati sono gli stessi per ubuntu e debian.
 L´ideale sarebbe poter scrivere `install vga=off console=ttyS0m115200n8 url=172.28.48.21:5000/preseed.cfg`
 
 Peró vengono comunque chiesti alcuni valori:
+
     - lingua: aggiungere il paramentro locale=en_US.UTF-8
     - hostname, a causa di un [bug](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202). Soluzioni:
         - aggiungere `priority=critical` come paramentro da passare al boot
