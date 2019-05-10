@@ -1,5 +1,7 @@
 # APU2
 
+Apu2 is an evolution of the apu board with a cooler running quad core CPU, more robust Intel NICs, and lower total solution cost.
+
 ![Apu2 board](https://pcengines.ch/pic/apu2c2_1.jpg "Apu2 board")
 
 
@@ -24,18 +26,18 @@ Mac address:
 [Guida utilizzata](https://syscall.eu/blog/2017/07/19/apu/)
 
 - Boot the USB on apu2
-- Premere freccia giú finche non compare la scritta `Display help screens; type 'menu' at boot prompt to return to this menu" press "enter`
-- Scrivere ¨menu¨ e premere invio
-- premere F6
-- dopo `boot: ` scrivere `install console=ttyS0,115200n8` e premere invio
-- aspettare
+- Press down arrow until appears on the screen `Display help screens; type 'menu' at boot prompt to return to this menu" press "enter`
+- Write ¨menu¨ and press enter
+- Press F6
+- after `boot: ` prompt write `install console=ttyS0,115200n8` and press enter
+- wait (about 30 seconds)
 
 
 ### Ubuntu (work)
 
 Must download [Ubuntu Alternate](http://cdimage.ubuntu.com/releases/18.04.2/release/?_ga=2.6837746.1317156672.1557303868-755951356.1557213959) (ubuntu-18.04.2-server-amd64, *not* live-server)
 
-Once at the "boot:" prompt type:
+Once at the `boot:` prompt type:
 
 install vga=off console=ttyS0,115200n8
 
@@ -50,11 +52,10 @@ The file boot.cfg exists only using ISO MODE.
 ## Step 2: Automation install of ubuntu/debian
 
 ### Preseeding file
-Sia il file che i comandi utilizzati sono gli stessi per ubuntu e debian. 
+Both command and files are the same for ubuntu and debian. 
 
-- Generate the preseed.cfg file. We have 2 different options
+- Generate the preseed.cfg file. We have 2 different options:
     1. Automatic generate:[Used this](http://debian-handbook.info/browse/stable/sect.automated-installation.html) (not tested)
-    
         `sudo apt-get install debconf-utils`
         `sudo debconf-get-selections --installer`
     2. Modify the [example](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt) founded in the [documentation](https://help.ubuntu.com/lts/installation-guide/amd64/apbs04.html)
@@ -66,7 +67,7 @@ The best theory situation should be: `install vga=off console=ttyS0m115200n8 url
 
 But it doesn work properly, and still ask:
 
-    - the language and country. **Solution**: add paramater `locale=en_US.UTF-8`
+    - language and country. **Solution**: add paramater `locale=en_US.UTF-8`
     - hostname, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202). **Solutions**:
         - add `priority=critical` 
         - add `hostanme=ubuntu`
