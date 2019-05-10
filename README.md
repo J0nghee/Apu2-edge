@@ -3,7 +3,9 @@
 Mac address:
 - black: 
     - wifi: 04F021457CA4
-    - ethernet:
+    - enp2s0:
+    - ..
+    - ..
 - blue:  
     - wifi: 04F021457CA2
 - red:   
