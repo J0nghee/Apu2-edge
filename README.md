@@ -1,5 +1,9 @@
 # APU2
 
+![Apu2 board](https://pcengines.ch/pic/apu2c2_1.jpg "Apu2 board")
+
+
+
 Mac address:
 - black: 
     - wifi: 04F021457CA4
@@ -19,7 +23,7 @@ Mac address:
 
 [Guida utilizzata](https://syscall.eu/blog/2017/07/19/apu/)
 
-- Far partire la USB sulla apu
+- Boot the USB on apu2
 - Premere freccia giú finche non compare la scritta `Display help screens; type 'menu' at boot prompt to return to this menu" press "enter`
 - Scrivere ¨menu¨ e premere invio
 - premere F6
@@ -39,45 +43,51 @@ install vga=off console=ttyS0,115200n8
 
 Install the .iso on the USB with Unetbootin (iso mode).
 
-Cambiando il file /boot/grub/boot.cfg e sostiuendo al post di `vga=...` -> ´console=ttyS0,115200n8´, in teoria si dovrebbe riuscire ma invece no. 
+Changing file /boot/grub/boot.cfg and replacing `vga=...` with ´console=ttyS0,115200n8´, in theory should work, but it doesn´t.
 
-Il file boot.cfg c´é solo masterizzando la iso in ISO MODE. 
+The file boot.cfg exists only using ISO MODE. 
 
-## Step 2: Preseeding 
+## Step 2: Automation install of ubuntu/debian
 
-### Preseeding with ubuntu/debian
+### Preseeding file
 Sia il file che i comandi utilizzati sono gli stessi per ubuntu e debian. 
 
 - Generate the preseed.cfg file. We have 2 different options
-    1. Automatic generate:[Used this](http://debian-handbook.info/browse/stable/sect.automated-installation.html)
+    1. Automatic generate:[Used this](http://debian-handbook.info/browse/stable/sect.automated-installation.html) (not tested)
     
         `sudo apt-get install debconf-utils`
         `sudo debconf-get-selections --installer`
     2. Modify the [example](https://help.ubuntu.com/lts/installation-guide/example-preseed.txt) founded in the [documentation](https://help.ubuntu.com/lts/installation-guide/amd64/apbs04.html)
-        - [file preseed modificato](https://gitlab.fbk.eu/fgionghi/apu2/blob/master/Files/preseed.cfg)
+        - [Custom preseed file](https://gitlab.fbk.eu/fgionghi/apu2/blob/master/Files/preseed.cfg)
 
-- Avviare la scheda, una volta arrivati al prompt `boot:`, proseguire il comando `install vga.. console=..` come descritto in seguito
+- Turn on the apu2, once at prompt `boot:`, add to command `install vga.. console=..` what´s next:
 
-L´ideale sarebbe poter scrivere `install vga=off console=ttyS0m115200n8 url=172.28.48.21:5000/preseed.cfg`
+The best theory situation should be: `install vga=off console=ttyS0m115200n8 url=172.28.48.21:5000/preseed.cfg`
 
-Peró vengono comunque chiesti alcuni valori:
+But it doesn work properly, and still ask:
 
-    - lingua: aggiungere il paramentro locale=en_US.UTF-8
-    - hostname, a causa di un [bug](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202). Soluzioni:
-        - aggiungere `priority=critical` come paramentro da passare al boot
-        - aggiungere hostanme=ubuntu come paramentro da passare al boot
-    - interface, a causa di un [bug](https://bugs.launchpad.net/ubuntu/+source/netcfg/+bug/855921). Soluzione:
-        - aggiungere paramentro interface=enp2s0 dopo `url=...`
+    - the language and country. **Solution**: add paramater `locale=en_US.UTF-8`
+    - hostname, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202). **Solutions**:
+        - add `priority=critical` 
+        - add `hostanme=ubuntu`
+    - interface, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/netcfg/+bug/855921). **Solution** add parameter `interface=auto` (or  `interface=enp2s0`) after `url=...`
         
-Il comando finale diventa quindi: `install vga=off console=ttyS0m115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg priority=critical interface=enp2s0 `
+So, the *final command* is: `install vga=off console=ttyS0m115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg priority=critical interface=enp2s0 `
 
 ## SSH 
 [Script finito](https://gitlab.fbk.eu/fgionghi/apu2/blob/master/Files/ssh_script.sh)
-Scopo: script che aggiunga al file ~/.ssh/authorized_keys una chiave pubblica e modifichi i parametri PubkeyAuthentication e PasswordAuthentication
+The preseed file should run a script that:
+    - add to file `~/.ssh/authorized_keys` a public keys
+    - change value of PubkeyAuthentication and PasswordAuthentication:
+        - change value: sed 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config > temp.txt
+        - uncomment and change value: sed 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
 
-cambia valore: sed 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config > temp.txt
-toglie cancelletto e cambia valore: sed 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
+
 
 mv -f temp.txt /etc/ssh/sshd_config
 
 echo ¨chiave pubblica¨ >> ~/.ssh/authorized_keys
+
+Per far partire lo script dal preseeding:
+`d-i preseed/run string ssh_script.sh` : da problemi, l´installazione si interrompe dicendo di non poter scaricare né il file né il preseeding
+`d-i preseed/late_command string in-target wget -P /tmp/ 172.28.48.21:5000/ssh_script.sh; in-target chmod $+x /tmp/ssh_script.sh; in-target /tmp/ssh_script.sh``
