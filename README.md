@@ -75,6 +75,7 @@ But it doesn work properly, and still ask:
         
 So, the *final command* is: `install vga=off console=ttyS0,115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg priority=critical interface=enp2s0 `
 
+
 ## SSH 
 [Script finito](https://gitlab.fbk.eu/fgionghi/apu2/blob/master/Files/ssh_script.sh)
 The preseed file should run a script that:
