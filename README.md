@@ -95,3 +95,30 @@ echo ¨chiave pubblica¨ >> ~/.ssh/authorized_keys
 Per far partire lo script dal preseeding:
 `d-i preseed/run string ssh_script.sh` : da problemi, l´installazione si interrompe dicendo di non poter scaricare né il file né il preseeding
 `d-i preseed/late_command string in-target wget -P /tmp/ 172.28.48.21:5000/ssh_script.sh; in-target chmod $+x /tmp/ssh_script.sh; in-target /tmp/ssh_script.sh``
+
+## Ansible
+
+/etc/ansible/hosts: list of my hosts grouped by a name in brackets (eg. [test-servers])
+Writing a playbook to install apache:
+
+---
+Appunti:
+installre python 3
+installare virtualenv py3
+installare ansible 2.7 dentro il virtualenv
+
+nel vritualenv:
+installare client openstack
+installare dipendenze per ansible con openstack
+
+scaricare file openrc da divine
+caricare le credenziali di openrc nella shell
+verificare che funzioni (openstack network list)
+caricare le credenziali di openrc in ansible
+
+creare playbook ansible che crea una nuov vm
+
+ansible all -m ping 
+
+installazione webserver 
+copia degli script 
