@@ -66,7 +66,6 @@ Both command and files are the same for ubuntu and debian.
 The best theory situation should be: `install vga=off console=ttyS0m115200n8 url=172.28.48.21:5000/preseed.cfg`
 
 But it doesn work properly, and still ask:
-
     - language and country. **Solution**: add paramater `locale=en_US.UTF-8`
     - hostname, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202). **Solutions**:
         - add `priority=critical` 
