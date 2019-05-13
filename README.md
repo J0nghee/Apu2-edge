@@ -66,13 +66,14 @@ Both command and files are the same for ubuntu and debian.
 The best theory situation should be: `install vga=off console=ttyS0m115200n8 url=172.28.48.21:5000/preseed.cfg`
 
 But it doesn work properly, and still ask:
-    - language and country. **Solution**: add paramater `locale=en_US.UTF-8`
-    - hostname, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202). **Solutions**:
-        - add `priority=critical` 
-        - add `hostanme=ubuntu`
-    - interface, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/netcfg/+bug/855921). **Solution** 
-        - add parameter `interface=enp2s0` 
-        - or  `interface=auto` after `url=...` **but** it´s not really auto, it however takes the **first** interface
+
+- language and country. **Solution**: add paramater `locale=en_US.UTF-8`
+- hostname, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/preseed/+bug/1452202). **Solutions**:
+    - add `priority=critical` 
+    - add `hostanme=ubuntu`
+- interface, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/netcfg/+bug/855921). **Solution** 
+    - add parameter `interface=enp2s0` 
+    - or  `interface=auto` after `url=...` **but** it´s not really auto, it however takes the **first** interface
         
 So, the *final command* is: `install vga=off console=ttyS0,115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg priority=critical interface=enp2s0 `
 
