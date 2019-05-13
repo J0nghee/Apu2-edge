@@ -73,7 +73,7 @@ But it doesn work properly, and still ask:
         - add `hostanme=ubuntu`
     - interface, caused by a [bug](https://bugs.launchpad.net/ubuntu/+source/netcfg/+bug/855921). **Solution** add parameter `interface=auto` (or  `interface=enp2s0`) after `url=...`
         
-So, the *final command* is: `install vga=off console=ttyS0m115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg priority=critical interface=enp2s0 `
+So, the *final command* is: `install vga=off console=ttyS0,115200n8 locale=en_US.UTF-8 url=172.28.48.21:5000/preseed.cfg priority=critical interface=enp2s0 `
 
 ## SSH 
 [Script finito](https://gitlab.fbk.eu/fgionghi/apu2/blob/master/Files/ssh_script.sh)
