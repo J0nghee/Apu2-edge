@@ -103,18 +103,18 @@ Writing a playbook to install apache:
 
 ---
 Appunti:
-installre python 3
-installare virtualenv py3
-installare ansible 2.7 dentro il virtualenv
+- installre python 3
+- installare virtualenv py3
+- installare ansible 2.7 dentro il virtualenv
 
 nel vritualenv:
-installare client openstack
-installare dipendenze per ansible con openstack
+- installare client openstack
+- installare dipendenze per ansible con openstack
 
-scaricare file openrc da divine
-caricare le credenziali di openrc nella shell
-verificare che funzioni (openstack network list)
-caricare le credenziali di openrc in ansible
+- scaricare file openrc da divine
+- caricare le credenziali di openrc nella shell
+- verificare che funzioni (openstack network list)
+- caricare le credenziali di openrc in ansible
 
 creare playbook ansible che crea una nuov vm
 
