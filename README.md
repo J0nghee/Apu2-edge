@@ -8,12 +8,14 @@ Apu2 is an evolution of the apu board with a cooler running quad core CPU, more 
 
 Mac address:
 - black: 
-    - wifi: 04F021457CA4
-    - enp2s0:
-    - ..
+    - wifi:   04F021457CA4
+    -
     - ..
 - blue:  
-    - wifi: 04F021457CA2
+    - wifi:   04:f0:21:45:7c:a2
+    - enp2s0: 00:0d:b9:4e:77:84
+    - enp3s0: 00:0d:b9:4e:77:85
+    - enp4s0: 00:0d:b9:4e:77:86
 - red:   
     - wifi: 04F021457CA5
 
