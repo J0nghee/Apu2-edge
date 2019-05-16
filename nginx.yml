@@ -1,0 +1,19 @@
+---
+- hosts: web
+  become: true
+  become_user: root
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+    - name: start nginx
+      service:
+           name: nginx
+           state: started
+    - name: copy preseed.cfg
+      copy:
+        src: ~/nginxpreseed/preseed.cfg
+        dest: /var/www/html/preseed.cfg     
+    - name: copy late_command.sh
+      copy:
+        src: ~/nginxpreseed/late_command.sh
+        dest: /var/www/html/late_command.sh
