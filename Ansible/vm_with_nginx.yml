@@ -1,3 +1,0 @@
-- include: create_vm.yml
-- include: install_python.yml
-- include: nginx.yml

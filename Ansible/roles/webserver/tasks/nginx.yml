@@ -1,0 +1,15 @@
+---
+- name: ensure nginx is at the latest version
+  apt: name=nginx state=latest
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+- name: copy preseed.cfg
+  copy:
+    src: "{{ role_path }}/files/preseed.cfg"
+    dest: /var/www/html/preseed.cfg     
+- name: copy late_command.sh
+  copy:
+    src: "{{ role_path }}/files/preseed.cfg"
+    dest: /var/www/html/late_command.sh

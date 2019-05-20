@@ -1,0 +1,71 @@
+---
+    - name: create network
+      os_network:
+        state: present
+        name: web-server-net
+        external: false
+        wait: yes
+
+    - name: create subnet
+      os_subnet:
+        state: present
+        network_name: web-server-net
+        name: web-server-subnet
+        cidr: 192.168.2.0/24
+        dns_nameservers:
+          - 8.8.8.8
+        wait: yes
+
+    - name: create a router
+      os_router:
+        state: present
+        name: router
+        network: PUBLIC
+        interfaces:
+          - web-server-subnet
+
+    - name: create security group
+      os_security_group:
+        state: present
+        name: web-server-security
+        description: Security group for our test instances
+
+    - name: create security group rule for SSH
+      os_security_group_rule:
+        security_group: web-server-security
+        protocol: tcp
+        port_range_min: 22
+        port_range_max: 22
+        remote_ip_prefix: 0.0.0.0/0
+
+    - name: create security group rule for HTTP
+      os_security_group_rule:
+        security_group: web-server-security
+        protocol: tcp
+        port_range_min: 80
+        port_range_max: 80
+        remote_ip_prefix: 0.0.0.0/0
+
+    - name: create vm
+      os_server:
+       state: present
+       name: webserver
+       image: Ubuntu 18.04 (Bionic) (user:ubuntu) 
+       key_name: priv
+       availability_zone: compute-5-6-7-8
+       wait: yes
+       flavor: 2-2-10
+       auto_floating_ip: yes
+       network: web-server-net
+      register: my_vm
+    - name: add vm to invetory
+      add_host:
+       name: openstack_vm
+       groups: web
+       ansible_host: "{{ my_vm.server.public_v4 }}"
+       ansible_user: ubuntu
+       ansible_ssh_host: "{{ my_vm.server.public_v4 }}"
+  
+    - name: wait for ssh
+      pause:
+       seconds: 20

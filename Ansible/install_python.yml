@@ -1,8 +1,0 @@
----
-- name: Deploy on OpenStack
-  hosts: web
-  become: yes
-  gather_facts: no
-  pre_tasks:
-    - name: ¨install python¨
-      raw: 'sudo apt-get -y install python'
