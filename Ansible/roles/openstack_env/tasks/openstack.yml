@@ -1,6 +1,0 @@
-plugin: openstack
-expand_hostvars: yes
-fail_on_errors: yes
-inventory_hostname: name
-# NOTE: seems required to list ip for host not having public floating ip
-show_all: yes

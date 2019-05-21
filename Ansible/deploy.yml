@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  roles:
+    - openstack_env
+
+#- include: roles/webserver/tasks/install_python.yml
+
+
+
+

@@ -1,0 +1,39 @@
+---
+
+- include: deploy.yml
+
+- name: Refresh and wait
+  hosts:
+    - localhost
+    - all
+  gather_facts: no
+  tasks:
+
+
+    - name: show all the hosts
+      debug:
+        msg: "Available hosts: {{ item }}"
+      with_inventory_hostnames:
+       - all
+
+    - name: Refresh inventory using meta module
+      meta: refresh_inventory
+
+    - name: show all the hosts after refresh
+      debug:
+        msg: "Available hosts: {{ item }}"
+      with_inventory_hostnames:
+       - all
+
+    - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
+      wait_for:
+        port: 22
+        host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
+        search_regex: OpenSSH
+        delay: 10
+      connection: local
+
+
+#- include: deploy2.yml
+
+
