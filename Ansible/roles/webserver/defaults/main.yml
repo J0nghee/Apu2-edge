@@ -1,1 +1,3 @@
 preseed_user: pippo
+istance_ssh_key_name: priv.pub
+istance_ssh_key_content: "{{ lookup('file', istance_ssh_key_name) }}"
