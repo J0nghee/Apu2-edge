@@ -1,38 +1,39 @@
+#variables in /roles/openstack_env/defaults/main.yml
 ---
 - name: create network
   os_network:
     state: present
-    name: web-server-net
+    name: "{{ openstack_network_name }}"
     external: false
     wait: yes
 
 - name: create subnet
   os_subnet:
     state: present
-    network_name: web-server-net
-    name: web-server-subnet
-    cidr: 192.168.2.0/24
+    network_name: "{{ openstack_network_name }}"
+    name: "{{ openstack_subnet_name }}"
+    cidr: "{{ openstack_cidr }}"
     dns_nameservers:
-      - 8.8.8.8
+      - "{{ openstack_dns }}"
     wait: yes
 
 - name: create a router
   os_router:
     state: present
-    name: router
+    name: "{{ openstack_router_name }}"
     network: PUBLIC
     interfaces:
-      - web-server-subnet
+      - "{{ openstack_subnet_name }}"
 
 - name: create security group
   os_security_group:
     state: present
-    name: web-server-security
-    description: Security group for our test instances
+    name: "{{ openstack_security_group_name }}"
+    description: "{{ openstack_security_group_description }}"
 
 - name: create security group rule for SSH
   os_security_group_rule:
-    security_group: web-server-security
+    security_group: "{{ openstack_security_group_name }}"
     protocol: tcp
     port_range_min: 22
     port_range_max: 22
@@ -40,25 +41,34 @@
 
 - name: create security group rule for HTTP
   os_security_group_rule:
-    security_group: web-server-security
+    security_group: "{{ openstack_security_group_name }}"
     protocol: tcp
     port_range_min: 80
     port_range_max: 80
     remote_ip_prefix: 0.0.0.0/0
 
+- name: upload my public ssh key
+  os_keypair:
+    state: present
+    name: "{{ openstack_key_name }}"
+    public_key_file: "{{ role_path }}/files/{{ openstack_key_name_file }}"
+  tags:
+    - ssh-key
+
 - name: create vm
   os_server:
     state: present
-    name: webserver1
-    image: Ubuntu 18.04 (Bionic) (user:ubuntu) 
-    key_name: priv
-    availability_zone: compute-5-6-7-8
+    name: "{{ openstack_vm_name }}"
+    image: "{{ openstack_image_name }}"
+    key_name: "{{ openstack_key_name }}"
+    availability_zone: "{{ openstack_availability_zone }}"
     wait: yes
-    flavor: 2-2-10
+    flavor: "{{ openstack_flavor }}"
     auto_floating_ip: yes
-    network: web-server-net
+    network: "{{ openstack_network_name }}"
     meta:
-      groups: webserver
+      groups: "{{ openstack_meta_group }}"
+
 
 
 #TO DO
