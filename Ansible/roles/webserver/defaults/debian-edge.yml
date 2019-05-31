@@ -1,0 +1,7 @@
+---
+preseed_archive_mirror: ftp.it.debian.org
+preseed_early_command: "umount /media"
+preseed_taskfirst: 
+  - ssh-server
+
+preseed_archive_mirror_directory: /debian

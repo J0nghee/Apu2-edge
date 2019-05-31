@@ -1,5 +1,11 @@
 ---
 - hosts: webserver
   become: yes
+  become_user: root
+  gather_facts: no
+  pre_tasks:
+    - name: install python
+      raw: 'sudo apt-get -y install python'
   roles:
-     - webserver
+     #- python 
+     - webserver 

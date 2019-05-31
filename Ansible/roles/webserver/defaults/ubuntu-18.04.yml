@@ -1,0 +1,9 @@
+---
+#set here variables for ubuntu preseed file
+#you can override all the varibales in main.yml
+preseed_archive_mirror: archive.ubuntu.com
+preseed_taskfirst: 
+  - ssh-server
+  - ubuntu-desktop
+
+preseed_archive_mirror_directory: /ubuntu

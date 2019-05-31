@@ -1,0 +1,6 @@
+---
+preseed_archive_mirror: ftp.it.debian.org
+preseed_taskfirst: 
+  - ssh-server
+  - kde-desktop
+preseed_archive_mirror_directory: /debian

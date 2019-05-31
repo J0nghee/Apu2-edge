@@ -16,7 +16,7 @@ openstack_key_name: my_key
 openstack_key_name_file: nuova.pub
 
 #istance variables (vm_name and meta_groups must be different)
-openstack_vm_name: webserver1 
+openstack_vm_name: esempio 
 openstack_image_name: Ubuntu 18.04 (Bionic) (user:ubuntu)
 openstack_availability_zone: compute-5-6-7-8
 openstack_flavor: 2-2-10

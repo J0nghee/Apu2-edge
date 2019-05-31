@@ -61,6 +61,7 @@
     name: "{{ openstack_vm_name }}"
     image: "{{ openstack_image_name }}"
     key_name: "{{ openstack_key_name }}"
+    security_groups: "{{ openstack_security_group_name }}"
     availability_zone: "{{ openstack_availability_zone }}"
     wait: yes
     flavor: "{{ openstack_flavor }}"

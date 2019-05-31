@@ -6,17 +6,90 @@
     name: nginx
     state: started
 
-- name: customize preseed.cfg
+- name: include debian vars
+  include_vars:
+    file: "{{ role_path }}/defaults/debian-9.0.yml"
+    name: debian
+  tags:
+    - webserver-debug
+
+- name: include ubuntu vars
+  include_vars:
+    file: "{{ role_path }}/defaults/ubuntu-18.04.yml"
+    name: ubuntu
+  tags:
+    - webserver-debug
+
+- name: include debian vars
+  include_vars:
+    file: "{{ role_path }}/defaults/debian-edge.yml"
+    name: debian_edge
+  tags:
+    - webserver-debug
+
+- name: include debian vars
+  include_vars:
+    file: "{{ role_path }}/defaults/ubuntu-edge.yml"
+    name: ubuntu_edge
+  tags:
+    - webserver-debug
+
+- name: include general vars
+  include_vars:
+    file: "{{ role_path }}/defaults/main.yml"
+    name: general
+  tags:
+    - webserver-debug
+
+- set_fact:
+    pre_set: "{{ general | combine(debian) }}"
+  tags:
+    - webserver-debug
+- name: customize preseed.cfg for debian
   template:
      src: "{{ role_path }}/files/preseed.j2"
-     dest: /var/www/html/preseed.cfg
+     dest: /var/www/html/preseed-debian.cfg
+  tags:
+    - webserver-debug
+
+- set_fact:
+    pre_set: "{{ general | combine(ubuntu) }}"
+  tags:
+    - webserver-debug
+- name: customize preseed.cfg for ubuntu    
+  template:
+     src: "{{ role_path }}/files/preseed.j2"
+     dest: /var/www/html/preseed-ubuntu.cfg
+  tags:
+    - webserver-debug
+
+- set_fact:
+    pre_set: "{{ general | combine(debian_edge) }}"
+  tags:
+    - webserver-debug
+- name: customize preseed.cfg for debian-edge
+  template:
+     src: "{{ role_path }}/files/preseed.j2"
+     dest: /var/www/html/preseed-debian-edge.cfg
+  tags:
+    - webserver-debug
+
+- set_fact:
+    pre_set: "{{ general | combine(ubuntu_edge) }}"
+  tags:
+    - webserver-debug
+- name: customize preseed.cfg for ubuntu-edge
+  template:
+     src: "{{ role_path }}/files/preseed.j2"
+     dest: /var/www/html/preseed-ubuntu-edge.cfg
+  tags:
+    - webserver-debug
+
 
 - name: customize late_command.sh
   template:
      src: "{{ role_path }}/files/late_command.j2"
      dest: /var/www/html/late_command.sh
 
-#- name: copy late_command.sh
-#  copy:
-#    src: "{{ role_path }}/files/late_command.sh"
-#    dest: /var/www/html/late_command.sh
+
+    

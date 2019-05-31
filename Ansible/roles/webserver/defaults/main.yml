@@ -1,3 +1,14 @@
-preseed_user: pippo
+#openstack vm key, the file must be in files
 istance_ssh_key_name: priv.pub
 istance_ssh_key_content: "{{ lookup('file', istance_ssh_key_name) }}"
+
+#preseed variables
+preseed_user: user
+preseed_hostname: hostname
+preseed_fullname: fullname
+
+#password crypted with crypt(3) (mkpasswd)
+preseed_password: VXRVU3.Dl/EMQ
+
+
+

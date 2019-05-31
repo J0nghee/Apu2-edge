@@ -11,17 +11,17 @@ sed 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config > temp.tx
 
 mv -f temp.txt /etc/ssh/sshd_config
 
-if [ ! -d "/home/user/.ssh" ]
+if [ ! -d "/home/{{ preseed_user }}/.ssh" ]
 then
-	mkdir /home/user/.ssh
-	chmod 700 /home/user/.ssh
-	touch /home/user/.ssh/authorized_keys
-	chmod 600 /home/user/.ssh/authorized_keys
-	chown -R user /home/user/.ssh 
+	mkdir /home/{{ pre_set.preseed_user }}/.ssh
+	chmod 700 /home/{{ pre_set.preseed_user }}/.ssh
+	touch /home/{{ pre_set.preseed_user }}/.ssh/authorized_keys
+	chmod 600 /home/{{ pre_set.preseed_user }}/.ssh/authorized_keys
+	chown -R {{ pre_set.preseed_user }} /home/{{ pre_set.preseed_user }}/.ssh 
 fi
 
-echo {{ istance_ssh_key_content }} >> /home/user/.ssh/authorized_keys
+echo {{ istance_ssh_key_content }} >> /home/{{ pre_set.preseed_user }}/.ssh/authorized_keys
 
-chown -R user /home/user/.ssh 
+chown -R {{ pre_set.preseed_user }} /home/{{ pre_set.preseed_user }}/.ssh 
 
 systemctl restart sshd

@@ -32,13 +32,10 @@
         delay: 10
       connection: local
 
-- name: Install python
-  hosts: webserver
-  become: yes
-  gather_facts: no
-  pre_tasks:
-    - name: "install python"
-      raw: 'sudo apt-get -y install python'
+#hosts: webserver
+# - pre_tasks:
+#     - name: install python
+#       raw: 'sudo apt-get -y install python'
 
 - include: deploy2.yml
 
