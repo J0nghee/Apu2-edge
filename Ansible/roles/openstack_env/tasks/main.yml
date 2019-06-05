@@ -1,4 +1,3 @@
 ---
 # tasks file for openstack_env
-
 - include: openstack_env.yml

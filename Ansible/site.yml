@@ -1,5 +1,4 @@
 ---
-
 - include: deploy.yml
 
 - name: Refresh and wait
@@ -9,20 +8,20 @@
   gather_facts: no
 
   tasks:
-    - name: show all the hosts
-      debug:
-        msg: "Available hosts: {{ item }}"
-      with_inventory_hostnames:
-       - all
+#    - name: show all the hosts
+#      debug:
+#        msg: "Available hosts: {{ item }}"
+#      with_inventory_hostnames:
+#       - all
 
     - name: Refresh inventory using meta module
       meta: refresh_inventory
 
-    - name: show all the hosts after refresh
-      debug:
-        msg: "Available hosts: {{ item }}"
-      with_inventory_hostnames:
-       - all
+#    - name: show all the hosts after refresh
+#      debug:
+#        msg: "Available hosts: {{ item }}"
+#      with_inventory_hostnames:
+#       - all
 
     - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
       wait_for:
@@ -31,11 +30,6 @@
         search_regex: OpenSSH
         delay: 10
       connection: local
-
-#hosts: webserver
-# - pre_tasks:
-#     - name: install python
-#       raw: 'sudo apt-get -y install python'
 
 - include: deploy2.yml
 

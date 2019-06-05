@@ -6,4 +6,4 @@ preseed_taskfirst:
   - ssh-server
   - ubuntu-desktop
 
-preseed_archive_mirror_directory: /ubuntu
+preseed_archive_mirror_directory: /ubuntu/

@@ -3,7 +3,7 @@ istance_ssh_key_name: priv.pub
 istance_ssh_key_content: "{{ lookup('file', istance_ssh_key_name) }}"
 
 #preseed variables
-preseed_user: user
+preseed_user: pippo
 preseed_hostname: hostname
 preseed_fullname: fullname
 

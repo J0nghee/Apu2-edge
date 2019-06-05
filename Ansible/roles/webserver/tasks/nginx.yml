@@ -20,14 +20,14 @@
   tags:
     - webserver-debug
 
-- name: include debian vars
+- name: include debian-edge vars
   include_vars:
     file: "{{ role_path }}/defaults/debian-edge.yml"
     name: debian_edge
   tags:
     - webserver-debug
 
-- name: include debian vars
+- name: include ubuntu-edge vars
   include_vars:
     file: "{{ role_path }}/defaults/ubuntu-edge.yml"
     name: ubuntu_edge

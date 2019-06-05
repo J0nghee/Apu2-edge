@@ -4,4 +4,5 @@ preseed_early_command: "umount /media"
 preseed_taskfirst: 
   - ssh-server
 
-preseed_archive_mirror_directory: /ubuntu
+preseed_archive_mirror_directory: /ubuntu/
+
