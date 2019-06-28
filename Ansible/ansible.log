@@ -44200,3 +44200,211 @@ deprecation_warnings=False in ansible.cfg.
 2019-06-04 10:54:03,289 p=8514 u=gionghi |  esempio                    : ok=18   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2019-06-04 10:54:03,290 p=8514 u=gionghi |  jkl                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 2019-06-04 10:54:03,290 p=8514 u=gionghi |  localhost                  : ok=10   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-06-10 09:38:13,349 p=9444 u=gionghi |  [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad
+ characters in group names by default, this will change, but still be user 
+configurable on deprecation. This feature will be removed in version 2.10. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2019-06-10 09:38:13,353 p=9444 u=gionghi |   [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv
+to see details
+
+2019-06-10 09:38:13,838 p=9444 u=gionghi |  [DEPRECATION WARNING]: 'include' for playbook includes. You should use 
+'import_playbook' instead. This feature will be removed in version 2.12. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-06-10 09:38:14,296 p=9444 u=gionghi |  PLAY [localhost] *********************************************************************
+2019-06-10 09:38:14,306 p=9444 u=gionghi |  TASK [Gathering Facts] ***************************************************************
+2019-06-10 09:38:15,167 p=9444 u=gionghi |  ok: [localhost]
+2019-06-10 09:38:15,192 p=9444 u=gionghi |  TASK [openstack_env : create network] ************************************************
+2019-06-10 09:38:17,257 p=9444 u=gionghi |  ok: [localhost]
+2019-06-10 09:38:17,286 p=9444 u=gionghi |  TASK [openstack_env : create subnet] *************************************************
+2019-06-10 09:38:19,736 p=9444 u=gionghi |  ok: [localhost]
+2019-06-10 09:38:19,761 p=9444 u=gionghi |  TASK [openstack_env : create a router] ***********************************************
+2019-06-10 09:38:22,208 p=9444 u=gionghi |  ok: [localhost]
+2019-06-10 09:38:22,232 p=9444 u=gionghi |  TASK [openstack_env : create security group] *****************************************
+2019-06-10 09:38:24,073 p=9444 u=gionghi |  ok: [localhost]
+2019-06-10 09:38:24,104 p=9444 u=gionghi |  TASK [openstack_env : create security group rule for SSH] ****************************
+2019-06-10 09:38:26,144 p=9444 u=gionghi |  ok: [localhost]
+2019-06-10 09:38:26,170 p=9444 u=gionghi |  TASK [openstack_env : create security group rule for HTTP] ***************************
+2019-06-10 09:38:28,234 p=9444 u=gionghi |  ok: [localhost]
+2019-06-10 09:38:28,260 p=9444 u=gionghi |  TASK [openstack_env : upload my public ssh key] **************************************
+2019-06-10 09:38:30,162 p=9444 u=gionghi |  ok: [localhost]
+2019-06-10 09:38:30,190 p=9444 u=gionghi |  TASK [openstack_env : create vm] *****************************************************
+2019-06-10 09:38:45,958 p=9444 u=gionghi |  fatal: [localhost]: FAILED! => {"changed": false, "extra_data": null, "msg": "ConflictException: 409: Client Error for url: https://os-divine.fbk.eu:9696/v2.0/floatingips.json, Quota exceeded for resources: ['floatingip']."}
+2019-06-10 09:38:45,959 p=9444 u=gionghi |  PLAY RECAP ***************************************************************************
+2019-06-10 09:38:45,959 p=9444 u=gionghi |  localhost                  : ok=8    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-06-10 09:41:45,669 p=9861 u=gionghi |  [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad
+ characters in group names by default, this will change, but still be user 
+configurable on deprecation. This feature will be removed in version 2.10. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2019-06-10 09:41:45,669 p=9861 u=gionghi |   [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv
+to see details
+
+2019-06-10 09:41:46,120 p=9861 u=gionghi |  [DEPRECATION WARNING]: 'include' for playbook includes. You should use 
+'import_playbook' instead. This feature will be removed in version 2.12. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-06-10 09:41:46,488 p=9861 u=gionghi |  PLAY [localhost] *********************************************************************
+2019-06-10 09:41:46,497 p=9861 u=gionghi |  TASK [Gathering Facts] ***************************************************************
+2019-06-10 09:41:47,323 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:41:47,351 p=9861 u=gionghi |  TASK [openstack_env : create network] ************************************************
+2019-06-10 09:41:49,330 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:41:49,355 p=9861 u=gionghi |  TASK [openstack_env : create subnet] *************************************************
+2019-06-10 09:41:51,478 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:41:51,504 p=9861 u=gionghi |  TASK [openstack_env : create a router] ***********************************************
+2019-06-10 09:41:54,163 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:41:54,213 p=9861 u=gionghi |  TASK [openstack_env : create security group] *****************************************
+2019-06-10 09:41:56,107 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:41:56,138 p=9861 u=gionghi |  TASK [openstack_env : create security group rule for SSH] ****************************
+2019-06-10 09:41:58,143 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:41:58,171 p=9861 u=gionghi |  TASK [openstack_env : create security group rule for HTTP] ***************************
+2019-06-10 09:41:59,987 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:42:00,027 p=9861 u=gionghi |  TASK [openstack_env : upload my public ssh key] **************************************
+2019-06-10 09:42:01,927 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:42:01,954 p=9861 u=gionghi |  TASK [openstack_env : create vm] *****************************************************
+2019-06-10 09:42:07,132 p=9861 u=gionghi |  changed: [localhost]
+2019-06-10 09:42:07,138 p=9861 u=gionghi |  PLAY [Refresh and wait] **************************************************************
+2019-06-10 09:42:11,285 p=9861 u=gionghi |  TASK [Wait 300 seconds for port 22 to become open and contain "OpenSSH"] *************
+2019-06-10 09:42:21,601 p=9861 u=gionghi |  ok: [localhost]
+2019-06-10 09:42:22,073 p=9861 u=gionghi |  [DEPRECATION WARNING]: Distribution Ubuntu 19.04 on host esempio should use 
+/usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior 
+Ansible releases. A future Ansible release will default to using the discovered 
+platform python for this host. See 
+https://docs.ansible.com/ansible/2.8/reference_appendices/interpreter_discovery.html 
+for more information. This feature will be removed in version 2.12. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-06-10 09:42:22,073 p=9861 u=gionghi |  ok: [esempio]
+2019-06-10 09:42:22,126 p=9861 u=gionghi |  [DEPRECATION WARNING]: Distribution Ubuntu 19.04 on host jkl should use 
+/usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior 
+Ansible releases. A future Ansible release will default to using the discovered 
+platform python for this host. See 
+https://docs.ansible.com/ansible/2.8/reference_appendices/interpreter_discovery.html 
+for more information. This feature will be removed in version 2.12. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-06-10 09:42:22,126 p=9861 u=gionghi |  ok: [jkl]
+2019-06-10 09:46:03,284 p=9861 u=gionghi |   [ERROR]: User interrupted execution
+
+2019-06-10 09:46:11,742 p=10362 u=gionghi |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the
+implicit localhost does not match 'all'
+
+2019-06-10 09:46:12,182 p=10362 u=gionghi |  [DEPRECATION WARNING]: 'include' for playbook includes. You should use 
+'import_playbook' instead. This feature will be removed in version 2.12. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-06-10 09:46:12,626 p=10362 u=gionghi |  PLAY [localhost] *********************************************************************
+2019-06-10 09:46:12,636 p=10362 u=gionghi |  TASK [Gathering Facts] ***************************************************************
+2019-06-10 09:46:13,532 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:46:13,560 p=10362 u=gionghi |  TASK [openstack_env : create network] ************************************************
+2019-06-10 09:46:15,672 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:46:15,701 p=10362 u=gionghi |  TASK [openstack_env : create subnet] *************************************************
+2019-06-10 09:46:17,928 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:46:17,952 p=10362 u=gionghi |  TASK [openstack_env : create a router] ***********************************************
+2019-06-10 09:46:20,477 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:46:20,503 p=10362 u=gionghi |  TASK [openstack_env : create security group] *****************************************
+2019-06-10 09:46:22,336 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:46:22,364 p=10362 u=gionghi |  TASK [openstack_env : create security group rule for SSH] ****************************
+2019-06-10 09:46:24,280 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:46:24,305 p=10362 u=gionghi |  TASK [openstack_env : create security group rule for HTTP] ***************************
+2019-06-10 09:46:26,014 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:46:26,039 p=10362 u=gionghi |  TASK [openstack_env : upload my public ssh key] **************************************
+2019-06-10 09:46:27,863 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:46:27,889 p=10362 u=gionghi |  TASK [openstack_env : create vm] *****************************************************
+2019-06-10 09:46:49,623 p=10362 u=gionghi |  changed: [localhost]
+2019-06-10 09:46:49,629 p=10362 u=gionghi |  PLAY [Refresh and wait] **************************************************************
+2019-06-10 09:46:51,879 p=10362 u=gionghi |  [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad
+ characters in group names by default, this will change, but still be user 
+configurable on deprecation. This feature will be removed in version 2.10. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2019-06-10 09:46:51,880 p=10362 u=gionghi |   [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv
+to see details
+
+2019-06-10 09:46:51,911 p=10362 u=gionghi |  TASK [Wait 300 seconds for port 22 to become open and contain "OpenSSH"] *************
+2019-06-10 09:47:02,161 p=10362 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:02,166 p=10362 u=gionghi |  PLAY [webserver] *********************************************************************
+2019-06-10 09:47:02,177 p=10362 u=gionghi |  TASK [install python] ****************************************************************
+2019-06-10 09:47:05,251 p=10362 u=gionghi |  fatal: [esempio]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 217.77.95.129 port 22: No route to host", "unreachable": true}
+2019-06-10 09:47:05,253 p=10362 u=gionghi |  PLAY RECAP ***************************************************************************
+2019-06-10 09:47:05,254 p=10362 u=gionghi |  esempio                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2019-06-10 09:47:05,254 p=10362 u=gionghi |  localhost                  : ok=10   changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-06-10 09:47:40,268 p=10706 u=gionghi |  [DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad
+ characters in group names by default, this will change, but still be user 
+configurable on deprecation. This feature will be removed in version 2.10. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2019-06-10 09:47:40,269 p=10706 u=gionghi |   [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv
+to see details
+
+2019-06-10 09:47:40,849 p=10706 u=gionghi |  [DEPRECATION WARNING]: 'include' for playbook includes. You should use 
+'import_playbook' instead. This feature will be removed in version 2.12. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-06-10 09:47:41,219 p=10706 u=gionghi |  PLAY [localhost] *********************************************************************
+2019-06-10 09:47:41,228 p=10706 u=gionghi |  TASK [Gathering Facts] ***************************************************************
+2019-06-10 09:47:42,078 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:42,105 p=10706 u=gionghi |  TASK [openstack_env : create network] ************************************************
+2019-06-10 09:47:44,047 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:44,073 p=10706 u=gionghi |  TASK [openstack_env : create subnet] *************************************************
+2019-06-10 09:47:46,300 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:46,325 p=10706 u=gionghi |  TASK [openstack_env : create a router] ***********************************************
+2019-06-10 09:47:48,757 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:48,783 p=10706 u=gionghi |  TASK [openstack_env : create security group] *****************************************
+2019-06-10 09:47:50,605 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:50,631 p=10706 u=gionghi |  TASK [openstack_env : create security group rule for SSH] ****************************
+2019-06-10 09:47:52,652 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:52,683 p=10706 u=gionghi |  TASK [openstack_env : create security group rule for HTTP] ***************************
+2019-06-10 09:47:54,494 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:54,520 p=10706 u=gionghi |  TASK [openstack_env : upload my public ssh key] **************************************
+2019-06-10 09:47:56,333 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:56,365 p=10706 u=gionghi |  TASK [openstack_env : create vm] *****************************************************
+2019-06-10 09:47:59,341 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:47:59,347 p=10706 u=gionghi |  PLAY [Refresh and wait] **************************************************************
+2019-06-10 09:48:01,661 p=10706 u=gionghi |  TASK [Wait 300 seconds for port 22 to become open and contain "OpenSSH"] *************
+2019-06-10 09:48:11,945 p=10706 u=gionghi |  ok: [localhost]
+2019-06-10 09:48:11,997 p=10706 u=gionghi |  [DEPRECATION WARNING]: Distribution Ubuntu 19.04 on host esempio should use 
+/usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior 
+Ansible releases. A future Ansible release will default to using the discovered 
+platform python for this host. See 
+https://docs.ansible.com/ansible/2.8/reference_appendices/interpreter_discovery.html 
+for more information. This feature will be removed in version 2.12. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-06-10 09:48:11,998 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:48:12,003 p=10706 u=gionghi |  PLAY [webserver] *********************************************************************
+2019-06-10 09:48:12,014 p=10706 u=gionghi |  TASK [install python] ****************************************************************
+2019-06-10 09:48:23,323 p=10706 u=gionghi |  changed: [esempio]
+2019-06-10 09:48:23,332 p=10706 u=gionghi |  TASK [webserver : ensure nginx is at the latest version] *****************************
+2019-06-10 09:48:59,204 p=10706 u=gionghi |   [WARNING]: Updating cache and auto-installing missing dependency: python-apt
+
+2019-06-10 09:48:59,207 p=10706 u=gionghi |   [WARNING]: Could not find aptitude. Using apt-get instead
+
+2019-06-10 09:48:59,207 p=10706 u=gionghi |  changed: [esempio]
+2019-06-10 09:48:59,213 p=10706 u=gionghi |  TASK [webserver : start nginx] *******************************************************
+2019-06-10 09:49:00,629 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:00,639 p=10706 u=gionghi |  TASK [webserver : include debian vars] ***********************************************
+2019-06-10 09:49:00,656 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:00,660 p=10706 u=gionghi |  TASK [webserver : include ubuntu vars] ***********************************************
+2019-06-10 09:49:00,677 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:00,685 p=10706 u=gionghi |  TASK [webserver : include debian-edge vars] ******************************************
+2019-06-10 09:49:00,704 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:00,708 p=10706 u=gionghi |  TASK [webserver : include ubuntu-edge vars] ******************************************
+2019-06-10 09:49:00,726 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:00,730 p=10706 u=gionghi |  TASK [webserver : include general vars] **********************************************
+2019-06-10 09:49:00,748 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:00,754 p=10706 u=gionghi |  TASK [webserver : set_fact] **********************************************************
+2019-06-10 09:49:00,779 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:00,787 p=10706 u=gionghi |  TASK [webserver : customize preseed.cfg for debian] **********************************
+2019-06-10 09:49:01,714 p=10706 u=gionghi |  changed: [esempio]
+2019-06-10 09:49:01,721 p=10706 u=gionghi |  TASK [webserver : set_fact] **********************************************************
+2019-06-10 09:49:01,743 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:01,748 p=10706 u=gionghi |  TASK [webserver : customize preseed.cfg for ubuntu] **********************************
+2019-06-10 09:49:02,413 p=10706 u=gionghi |  changed: [esempio]
+2019-06-10 09:49:02,420 p=10706 u=gionghi |  TASK [webserver : set_fact] **********************************************************
+2019-06-10 09:49:02,447 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:02,451 p=10706 u=gionghi |  TASK [webserver : customize preseed.cfg for debian-edge] *****************************
+2019-06-10 09:49:03,074 p=10706 u=gionghi |  changed: [esempio]
+2019-06-10 09:49:03,080 p=10706 u=gionghi |  TASK [webserver : set_fact] **********************************************************
+2019-06-10 09:49:03,103 p=10706 u=gionghi |  ok: [esempio]
+2019-06-10 09:49:03,108 p=10706 u=gionghi |  TASK [webserver : customize preseed.cfg for ubuntu-edge] *****************************
+2019-06-10 09:49:03,728 p=10706 u=gionghi |  changed: [esempio]
+2019-06-10 09:49:03,735 p=10706 u=gionghi |  TASK [webserver : customize late_command.sh] *****************************************
+2019-06-10 09:49:04,391 p=10706 u=gionghi |  changed: [esempio]
+2019-06-10 09:49:04,394 p=10706 u=gionghi |  PLAY RECAP ***************************************************************************
+2019-06-10 09:49:04,395 p=10706 u=gionghi |  esempio                    : ok=18   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-06-10 09:49:04,395 p=10706 u=gionghi |  localhost                  : ok=10   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

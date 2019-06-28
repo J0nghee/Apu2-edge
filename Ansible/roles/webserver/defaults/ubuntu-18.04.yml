@@ -7,3 +7,6 @@ preseed_taskfirst:
   - ubuntu-desktop
 
 preseed_archive_mirror_directory: /ubuntu/
+
+#need to obtain the link of late_command
+preseed_filename = preseed-ubuntu.cfg

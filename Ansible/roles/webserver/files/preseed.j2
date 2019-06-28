@@ -517,7 +517,7 @@ d-i finish-install/reboot_in_progress note
 
 #ottengo link per lo script, lo scarico e lo eseguo
 d-i preseed/late_command string \
-LATE_COMMAND_URL=$(echo "$url" | sed -e 's/preseed.cfg/late_command.sh/g'); \
+LATE_COMMAND_URL=$(echo "$url" | sed -e 's/{{ pre_set.preseed_filename }}/late_command.sh/g'); \
 in-target chsh -s /bin/bash ; \
 in-target wget $LATE_COMMAND_URL; \
 in-target sh late_command.sh;

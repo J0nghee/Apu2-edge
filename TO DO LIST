@@ -1,3 +1,35 @@
 - licenze apache, gpl, affero gpl
 - platform standard ansible per ubuntu/debian
 - pre_task as role
+
+
+domande: 
+- variabili ansible:
+
+#leave blank to install ubuntu_desktop, set to '#' to don't install it
+ubuntu_desktop: #
+
+#ssh script user. 
+script_user: edge
+
+
+router netgear:
+- foggy network 192.168.5.0/25
+- dhcp server : 172.28.48.254
+- static route 192.168.0.0
+- clone mac address WAN 
+
+
+objects:
+admins, students, student groups, vm
+
+actions:
+assegnare vm ai gruppi o agli studenti (admin )
+reboot vm (studenti, studenti nel gruppo, admin)
+rebuild vm (studenti, studenti nel gruppo, admin)
+upload ssh key
+student see his mate, at signin insert mate's mail
+
+---
+
+

@@ -1,0 +1,26 @@
+openstack 2 ip:
+
+cloud-init to add user password:
+#cloud-config
+chpasswd:
+  list: |
+    ubuntu:ubuntu
+  expire: False
+
+ifconfig ens5 192.168.4.13 netmask 255.255.255.0 up
+
+cat /proc/sys/net/ipv4/ip_forward
+
+If it is 1 (enabled), go ahead. If not, you will have to put net.ipv4.ip_forward=1 on /etc/sysctl.conf and run sysctl -p.
+
+iptables -t nat -A  PREROUTING -d 217.77.95.129 -j DNAT --to-destination 192.168.4.11
+sudo iptables -t nat -A POSTROUTING -s 192.168.10.11 -j SNAT --to-source 217.77.95.129
+/etc/init.d/networking restart
+
+iptables -A PREROUTING -s ${source} -d ${dest} -p tcp --dport ${port} -j DNAT --to-destination ${redirect}
+
+create virtual interfaces: https://superuser.com/questions/153415/how-do-you-create-a-new-network-eth
+
+iptables --table nat --append PREROUTING --in-interface ens4 --dest 217.77.95.129 -j DNAT --to-destination 192.168.4.14
+
+iptables --table nat --append POSTROUTING --out-interface ens4 -source 192.168.4.0/24 --dest 192.168.4.14 SNAT --to-source 192.168.1.1

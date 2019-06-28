@@ -5,3 +5,6 @@ preseed_taskfirst:
   - ssh-server
 
 preseed_archive_mirror_directory: /debian/
+
+#need to obtain the link of late_command
+preseed_filename = preseed-debian-edge.cfg
